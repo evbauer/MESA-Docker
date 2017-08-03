@@ -1,9 +1,11 @@
 
 export DISPLAY=localhost:0.0
+# Needs a windows style path to mount.
+export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
 
 docker run -d --rm \
        -p 6158:22 \
-       -v $PWD/docker_work:/home/docker/docker_work \
+       -v $HERE/docker_work:/home/docker/docker_work \
        evbauer/mesa9793_installed:0.2
 
 ssh -X -p 6158 docker@localhost
