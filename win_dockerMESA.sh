@@ -1,3 +1,4 @@
+#!/bin/bash
 
 export DISPLAY=localhost:0.0
 # Needs a windows style path to mount.
@@ -7,7 +8,7 @@ winpty docker run -d --rm \
        -p 6158:22 \
        -v $HERE/docker_work:/home/docker/docker_work \
        evbauer/mesa9793_installed:0.2 \
-       sudo service ssh start
+       ./.start_ssh_for_docker.sh
 
 ssh -X -p 6158 docker@localhost
 
