@@ -21,34 +21,42 @@ I also had to turn off "fast boot" on my particular ASUS motherboard, but I thin
 
 https://www.docker.com/community-edition
 
+## Setup
+
+In your terminal, navigate to where you want to set up your MESA working directory, and clone this repository.
+
+	git clone https://github.com/evbauer/DockerMESA.git
+
+
 ## Running
 
 ### OS X
 
 Start Docker.
 
-In your terminal, navigate to where you want to set up your MESA working directory.
+In your terminal, navigate to your DockerMESA directory, and run the script for Mac.
 
-Clone this repository.
+	./mac_dockerMESA.sh
 
-	git clone https://github.com/evbauer/DockerMESA.git
+You should now be inside a docker container with MESA installed and ready to go. Once you've done your work, you can cleanly end the session simply by typing
 
-Run the script for Mac.
+	exit
+	
+Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
 
-	cd DockerMESA && ./mac_dockerMESA.sh
 
 ### Windows 10
 
 Start Docker and Xming.
 
-Open Git Bash and navigate to where you want to set up your MESA working directory.
+Open Git Bash and navigate to your DockerMESA directory, then run the script for Windows.
 
-Clone this repository.
-
-	git clone https://github.com/evbauer/DockerMESA.git
-
-Run the script for Windows.
-
-	cd DockerMESA && ./win_dockerMESA.sh
+	./win_dockerMESA.sh
 
 The Windows script currently operates by SSHing into the Docker container for nice handling of X11 forwarding to your desktop. The password for user "docker" is `mesa`. 
+
+You should now be inside a docker container with MESA installed and ready to go. Once you've done your work, you can cleanly end the session simply by typing
+
+	exit
+
+Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
