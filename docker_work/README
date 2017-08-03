@@ -1,0 +1,13 @@
+
+This is the directory where you should do you MESA work. This
+directory gets mounted into the Docker container, so changes made here
+persist after the container is closed. Anything saved outside of this
+directory is lost when the container is removed.
+
+To get started with MESA, copy the star/work directory here:
+
+cp -r $MESA_DIR/star/work .
+cd work
+./mk
+./rn
+
