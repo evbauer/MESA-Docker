@@ -5,7 +5,7 @@ export DISPLAY=localhost:0.0
 export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
 
 winpty docker run -d --rm \
-       --name mesa_dock
+       --name mesa_dock \
        -p 6158:22 \
        -v $HERE/docker_work:/home/docker/docker_work \
        evbauer/mesa9793_installed:0.2 \
