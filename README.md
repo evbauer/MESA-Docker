@@ -4,8 +4,8 @@ MESA in a Docker Container for easy installation
 
 ## Prerequisites
 
-At least 8 GB of RAM and 10 GB of free disk space is recommended.
-The Docker image is 7.5 GB, and you'll also need space to store any MESA output.
+At least 8 GB of RAM and 10 GB of free disk space are recommended.
+The Docker image is about 5 GB, and you'll also need space to store any MESA output.
 If you have < 8 GB of RAM, you may need to tune your Docker settings to allocate less than the default of 2GB to Docker for it to start.
 If you have ≥ 8 GB of RAM, you may want to consider tweaking your Docker settings to allow for more than the default 2 GB for containers.
 
@@ -77,5 +77,6 @@ This will show you all the images and how much space they are taking up. You sho
 
 	rmi evbauer/mesa_lean:9793.01
 
+### OS X Warning
 
-
+It has been documented that Docker for Mac fails to shrink its disk usage even after images are totally removed (https://github.com/docker/for-mac/issues/371). If you need to get that disk space back, you may need to reset the client: Preferences -> Reset -> Reset to factory defaults. This will remove ALL of your docker containers and images and free up the disk space used by Docker, so be careful if you have any local images that you can't pull from Docker Hub after you reset.
