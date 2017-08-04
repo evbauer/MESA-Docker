@@ -8,7 +8,7 @@ winpty docker run -d --rm \
        --name mesa_dock \
        -p 6158:22 \
        -v $HERE/docker_work:/home/docker/docker_work \
-       evbauer/mesa9793_installed:0.2 \
+       evbauer/mesa_lean:9793.01 \
        sleep infinity
 
 winpty docker exec --user root mesa_dock service ssh start

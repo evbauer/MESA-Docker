@@ -75,7 +75,7 @@ Docker will automatically cache the 7.5 GB image the first time you call the scr
 
 This will show you all the images and how much space they are taking up. You should be able to remove the DockerMESA image with the command
 
-	rmi evbauer/mesa9793_installed:0.2
+	rmi evbauer/mesa_lean:9793.01
 
 
 
