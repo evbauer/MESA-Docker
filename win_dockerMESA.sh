@@ -13,6 +13,6 @@ winpty docker run -d --rm \
 
 winpty docker exec --user root mesa_dock service ssh start
 
-ssh -X -p 6158 docker@localhost
+ssh -Y -p 6158 docker@localhost
 
 docker kill mesa_dock

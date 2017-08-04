@@ -4,6 +4,8 @@ MESA in a Docker Container for easy installation
 
 ## Prerequisites
 
+At least 8 GB of RAM and 10 GB of free disk space is recommended.
+
 ###  OS X
 Install XQuartz (2.7.10 or newer required). https://www.xquartz.org/
 
