@@ -5,11 +5,14 @@ MESA in a Docker Container for easy installation
 ## Prerequisites
 
 At least 8 GB of RAM and 10 GB of free disk space is recommended.
+The Docker image is 7.5 GB, and you'll also need space to store any MESA output.
+If you have < 8 GB of RAM, you may need to tune your Docker settings to allocate less than the default of 2GB to Docker for it to start.
+If you have ≥ 8 GB of RAM, you may want to consider tweaking your Docker settings to allow for more than the default 2 GB for containers.
 
 ###  OS X
 Install XQuartz (2.7.10 or newer required). https://www.xquartz.org/
 
-In XQuartz Preferences->Security, check the box for "Allow connections from network clients"
+In XQuartz Preferences->Security, check the box for "Allow connections from network clients". Restart XQuartz.
 
 ### Windows 10
 Install Xming. https://sourceforge.net/projects/xming/
@@ -62,3 +65,17 @@ You should now be inside a docker container with MESA installed and ready to go.
 	exit
 
 Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
+
+
+## Removing DockerMESA
+
+Docker will automatically cache the 7.5 GB image the first time you call the script, so you won't have to download it every time you run. If you want to free up that space on your hard drive, you can see a list of all your cached images by typing
+
+	docker images
+
+This will show you all the images and how much space they are taking up. You should be able to remove the DockerMESA image with the command
+
+	rmi evbauer/mesa9793_installed:0.2
+
+
+
