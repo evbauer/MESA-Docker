@@ -15,6 +15,8 @@ Install XQuartz (2.7.10 or newer required). https://www.xquartz.org/
 In XQuartz Preferences->Security, check the box for "Allow connections from network clients". Restart XQuartz.
 
 ### Windows 10
+Note: Currently only Windows 10 Pro, Enterprise, and Education are supported. Windows 10 Home does not enable hyper-v, and hence Docker Community Edition cannot be installed. Work is underway to find a solution using Docker Toolbox, but it is unclear what level of support will be possible.
+
 Install Xming. https://sourceforge.net/projects/xming/
 
 Install Git Bash. https://git-for-windows.github.io/
