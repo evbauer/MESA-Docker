@@ -21,7 +21,7 @@ Install Xming. https://sourceforge.net/projects/xming/
 
 Install Git Bash. https://git-for-windows.github.io/
 
-Running Docker may require enabling VT-x/AMD-v in BIOS/UEFI, then enabling hyper-v in Windows settings.
+Running Docker may require enabling VT-x/AMD-v in BIOS/UEFI.
 I also had to turn off "fast boot" on my particular ASUS motherboard, but I think this is uncommon.
 
 ## Install Docker
@@ -68,6 +68,8 @@ You should now be inside a docker container with MESA installed and ready to go.
 
 Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
 
+Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
+
 
 ## Removing DockerMESA
 
@@ -77,7 +79,7 @@ Docker will automatically cache the 7.5 GB image the first time you call the scr
 
 This will show you all the images and how much space they are taking up. You should be able to remove the DockerMESA image with the command
 
-	rmi evbauer/mesa_lean:9793.01
+	docker rmi evbauer/mesa_lean:9793.01
 
 ### OS X Warning
 
