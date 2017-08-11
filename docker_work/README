@@ -1,5 +1,5 @@
 
-This is the directory where you should do you MESA work. This
+This is the directory where you should do your MESA work. This
 directory gets mounted into the Docker container, so changes made here
 persist after the container is closed. Anything saved outside of this
 directory is lost when the container is removed.
