@@ -15,7 +15,6 @@ Install XQuartz (2.7.10 or newer required). https://www.xquartz.org/
 In XQuartz Preferences->Security, check the box for "Allow connections from network clients". Restart XQuartz.
 
 ### Windows 10
-Note: Currently only Windows 10 Pro, Enterprise, and Education are supported. Windows 10 Home does not enable hyper-v, and hence Docker Community Edition cannot be installed. Work is underway to find a solution using Docker Toolbox, but it is unclear what level of support will be possible.
 
 Install Xming. https://sourceforge.net/projects/xming/
 
@@ -26,7 +25,17 @@ I also had to turn off "fast boot" on my particular ASUS motherboard, but I thin
 
 ## Install Docker
 
+### OS X, Windows 10 Pro, Enterprise, and Education
+
+Install Docker Community Edition:
 https://www.docker.com/community-edition
+
+### Windows 10 Home
+
+Install Docker Toolbox: https://www.docker.com/products/docker-toolbox
+
+Windows 10 Home does not enable hyper-v, which is required for Docker Community Edition. Docker Toolbox provides a workaround. This is not optimal for performance, but MESA should run.
+
 
 ## Setup
 
@@ -52,7 +61,7 @@ You should now be inside a docker container with MESA installed and ready to go.
 Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
 
 
-### Windows 10
+### Windows 10 (Pro, Enterprise, Education)
 
 Start Docker and Xming.
 
@@ -70,10 +79,25 @@ Anything you saved in the `~/docker_work` directory inside the container will pe
 
 Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 
+### Windows 10 Home
+
+Start Xming.
+
+Open Git Bash and navigate to your DockerMESA directory, then run the script for Windows Home.
+
+	./win_home_dockerMESA.sh
+	
+This script starts a Linux virtual machine, starts the MESA Docker container inside that VM, and then SSH tunnels through both layers into the Docker container with X11 forwarding so you can see your `pgstar` windows. Since there are two levels of SSH performed here, you have to enter a password twice. The first password is `tcuser`, and the second password is `mesa`. 
+
+You should now be inside a docker container with MESA installed and ready to go. Once you've done your work, you can cleanly end the session simply by typing
+
+	exit
+
+Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 
 ## Removing DockerMESA
 
-Docker will automatically cache the 7.5 GB image the first time you call the script, so you won't have to download it every time you run. If you want to free up that space on your hard drive, you can see a list of all your cached images by typing
+Docker will automatically cache the 5 GB image the first time you call the script, so you won't have to download it every time you run. If you want to free up that space on your hard drive, you can see a list of all your cached images by typing
 
 	docker images
 
