@@ -34,12 +34,12 @@ fi
 #Connect terminal to the docker machine to allow running docker commands.
 eval "$(docker-machine env mesa-machine)"
 
-# Construct a comand string to pass into the docker-machine ssh'
+# Construct a comand string to pass into the docker-machine ssh for starting the container'
 START_DOCK='docker run -d --rm --name mesa_dock -p 6158:22 '
 START_DOCK+='-v /mesa_mount:/home/docker/docker_work '
 START_DOCK+='evbauer/mesa_lean:9793.01 sleep infinity'
 # Needs ssh connection for the mounting part of the command to work.
-docker-machine ssh mesa-machine $START_DOCK
+docker-machine ssh mesa-machine "$START_DOCK"
 docker exec --user root mesa_dock service ssh start
 
 ip=$(docker-machine ip mesa-machine)
