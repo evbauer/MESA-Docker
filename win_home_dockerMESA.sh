@@ -49,8 +49,10 @@ docker exec --user root mesa_dock service ssh start
 
 ip=$(docker-machine ip mesa-machine)
 # Bind port of docker container inside the machine to local port 20000
+echo "password is tcuser"
 ssh -Nf -L20000:localhost:6158 docker@$ip
 # ssh with X11 forwarding for pgstar.
+echo "password is mesa"
 ssh -Y -p 20000 docker@localhost
 
 docker kill mesa_dock
