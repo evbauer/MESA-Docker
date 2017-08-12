@@ -2,12 +2,10 @@
 
 export DISPLAY=localhost:0.0
 
-# Needs a windows style path to mount.
-export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
-
 #Check to see if mesa-machine exists
 MACHINE_EXISTS=$(docker-machine ls | grep mesa-machine -c)
-#If not create machine, otherwise start it
+
+# Initial VM configuration
 if [ $MACHINE_EXISTS -eq 0 ]
 then
     # Creating a machine with 2GB of RAM and 2 CPUs
@@ -21,14 +19,17 @@ then
     echo "MESA MACHINE CREATED, stopping for mount point"
     # Stop for mounting.
     docker-machine stop mesa-machine
-fi
 
-# docker-machine mount folder
-/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe \
-    sharedfolder add mesa-machine \
-    --name mesa_mount \
-    --hostpath $HERE/docker_work \
-    --automount
+    # Needs a windows style path to mount.
+    export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
+    
+    # docker-machine mount folder
+    /c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe \
+	sharedfolder add mesa-machine \
+	--name mesa_mount \
+	--hostpath $HERE/docker_work \
+	--automount
+fi
 
 docker-machine start mesa-machine
 echo "MESA MACHINE STARTED"

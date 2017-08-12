@@ -23,6 +23,7 @@ Install Git Bash. https://git-for-windows.github.io/
 Running Docker may require enabling VT-x/AMD-v in BIOS/UEFI.
 I also had to turn off "fast boot" on my particular ASUS motherboard, but I think this is uncommon.
 
+
 ## Install Docker
 
 ### OS X, Windows 10 Pro, Enterprise, and Education
@@ -87,11 +88,22 @@ Open Git Bash and navigate to your DockerMESA directory, then run the script for
 
 	./win_home_dockerMESA.sh
 	
+The first time this script runs it may take a few minutes to configure the virtual machine.
+
 This script starts a Linux virtual machine, starts the MESA Docker container inside that VM, and then SSH tunnels through both layers into the Docker container with X11 forwarding so you can see your `pgstar` windows. Since there are two levels of SSH performed here, you have to enter a password twice. The first password is `tcuser`, and the second password is `mesa`. 
 
 You should now be inside a docker container with MESA installed and ready to go. Once you've done your work, you can cleanly end the session simply by typing
 
 	exit
+
+Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container. If this folder fails to mount in the container, check your install location for VirtualBox. You may need to rerun this command from the script with the appropriate path for `VBoxManage.exe`:
+
+	/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe \
+    	sharedfolder add mesa-machine \
+    	--name mesa_mount \
+    	--hostpath $HERE/docker_work \
+    	--automount
+
 
 Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 
@@ -108,3 +120,4 @@ This will show you all the images and how much space they are taking up. You sho
 ### OS X Warning
 
 It has been documented that Docker for Mac fails to shrink its disk usage even after images are totally removed (https://github.com/docker/for-mac/issues/371). If you need to get that disk space back, you may need to reset the client: Preferences -> Reset -> Reset to factory defaults. This will remove ALL of your docker containers and images and free up the disk space used by Docker, so be careful if you have any local images that you can't pull from Docker Hub after you reset.
+
