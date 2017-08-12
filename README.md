@@ -30,7 +30,7 @@ I also had to turn off "fast boot" on my particular ASUS motherboard, but I thin
 Install Docker Community Edition:
 https://www.docker.com/community-edition
 
-### Windows 10 Home
+### Windows 10 Home (and possibly older Windows versions)
 
 Install Docker Toolbox: https://www.docker.com/products/docker-toolbox
 
@@ -79,7 +79,7 @@ Anything you saved in the `~/docker_work` directory inside the container will pe
 
 Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 
-### Windows 10 Home
+### Windows 10 Home (and possibly older Windows versions)
 
 Start Xming.
 
