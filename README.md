@@ -96,16 +96,7 @@ You should now be inside a docker container with MESA installed and ready to go.
 
 	exit
 
-Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container. If this folder fails to mount in the container, check your install location for VirtualBox. You may need to rerun these commands from the script with the appropriate path for `VBoxManage.exe`:
-
-	export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
-	# docker-machine mount folder
-	/c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe \
-    	sharedfolder add mesa-machine \
-    	--name mesa_mount \
-    	--hostpath $HERE/docker_work \
-    	--automount
-
+Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
 
 Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 

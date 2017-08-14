@@ -23,8 +23,10 @@ then
     # Needs a windows style path to mount.
     export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
     
+    export VBOX=$(find /c -name VBoxManage.exe 2>/dev/null | head -n 1)
+
     # docker-machine mount folder
-    /c/Program\ Files/Oracle/VirtualBox/VBoxManage.exe \
+    "$VBOX" \
 	sharedfolder add mesa-machine \
 	--name mesa_mount \
 	--hostpath $HERE/docker_work \
