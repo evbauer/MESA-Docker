@@ -2,6 +2,8 @@
 
 MESA in a Docker Container for easy installation
 
+![Logo](https://github.com/evbauer/MESA-Docker/MESA-Docker-logo.png)
+
 ## Prerequisites
 
 At least 8 GB of RAM and 10 GB of free disk space are recommended.
