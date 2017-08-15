@@ -1,4 +1,4 @@
-# DockerMESA
+# MESA-Docker
 
 MESA in a Docker Container for easy installation
 
@@ -42,7 +42,7 @@ Windows 10 Home does not enable hyper-v, which is required for Docker Community 
 
 In your terminal, navigate to where you want to set up your MESA working directory, and clone this repository.
 
-	git clone https://github.com/evbauer/DockerMESA.git
+	git clone https://github.com/evbauer/MESA-Docker.git
 
 
 ## Running
@@ -51,7 +51,7 @@ In your terminal, navigate to where you want to set up your MESA working directo
 
 Start Docker.
 
-In your terminal, navigate to your DockerMESA directory, and run the script for Mac.
+In your terminal, navigate to your MESA-Docker directory, and run the script for Mac.
 
 	./mac_dockerMESA.sh
 
@@ -59,14 +59,14 @@ You should now be inside a docker container with MESA installed and ready to go.
 
 	exit
 	
-Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
+Anything you saved in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container.
 
 
 ### Windows 10 (Pro, Enterprise, Education)
 
 Start Docker and Xming.
 
-Open Git Bash and navigate to your DockerMESA directory, then run the script for Windows.
+Open Git Bash and navigate to your MESA-Docker directory, then run the script for Windows.
 
 	./win_dockerMESA.sh
 
@@ -76,7 +76,7 @@ You should now be inside a docker container with MESA installed and ready to go.
 
 	exit
 
-Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
+Anything you saved in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container.
 
 Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 
@@ -84,7 +84,7 @@ Cleanly detaching from the container may require quitting XQuartz/Xming if pgsta
 
 Start Xming.
 
-Open Git Bash and navigate to your DockerMESA directory, then run the script for Windows Home.
+Open Git Bash and navigate to your MESA-Docker directory, then run the script for Windows Home.
 
 	./win_home_dockerMESA.sh
 	
@@ -96,17 +96,17 @@ You should now be inside a docker container with MESA installed and ready to go.
 
 	exit
 
-Anything you saved in the `~/docker_work` directory inside the container will persist in the `DockerMESA/docker_work` directory outside the container.
+Anything you saved in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container.
 
 Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 
-## Removing DockerMESA
+## Removing MESA-Docker
 
 Docker will automatically cache the 5 GB image the first time you call the script, so you won't have to download it every time you run. If you want to free up that space on your hard drive, you can see a list of all your cached images by typing
 
 	docker images
 
-This will show you all the images and how much space they are taking up. You should be able to remove the DockerMESA image with the command
+This will show you all the images and how much space they are taking up. You should be able to remove the MESA-Docker image with the command
 
 	docker rmi evbauer/mesa_lean:9793.01
 
