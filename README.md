@@ -2,7 +2,7 @@
 
 MESA in a Docker Container for easy installation
 
-![Logo](https://github.com/evbauer/MESA-Docker/MESA-Docker-logo.png)
+![Logo](https://github.com/evbauer/MESA-Docker/blob/master/MESA-Docker-logo.png)
 
 ## Prerequisites
 
