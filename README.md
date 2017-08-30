@@ -1,14 +1,14 @@
 
 ![Logo](https://github.com/evbauer/MESA-Docker/blob/master/MESA-Docker-logo.png)
 
-MESA in a Docker Container for easy installation.
+MESA in a Docker Container for easy installation on any modern operating system.
 
 ## Prerequisites
 
 At least 8 GB of RAM and 10 GB of free disk space are recommended.
 The Docker image is about 5 GB, and you'll also need space to store any MESA output.
-If you have < 8 GB of RAM, you may need to tune your Docker settings to allocate less than the default of 2GB to Docker for it to start.
-If you have ≥ 8 GB of RAM, you may want to consider tweaking your Docker settings to allow for more than the default 2 GB for containers.
+If you have < 8 GB of RAM, you may need to tune your Docker settings to allocate an appropriate memory.
+If you have ≥ 8 GB of RAM or ≥ 4 CPU cores, you may want to consider tweaking Docker setting to allocate more resources to containers.
 
 ###  OS X
 Install XQuartz (2.7.10 or newer required). https://www.xquartz.org/
@@ -27,7 +27,7 @@ I also had to turn off "fast boot" on my particular ASUS motherboard, but I thin
 
 ## Install Docker
 
-### OS X, Windows 10 Pro, Enterprise, and Education
+### OS X, Linux, Windows 10 Pro, Enterprise, and Education
 
 Install Docker Community Edition:
 https://www.docker.com/community-edition
@@ -46,7 +46,7 @@ In your terminal, navigate to where you want to set up your MESA working directo
 	git clone https://github.com/evbauer/MESA-Docker.git
 
 
-## Running
+## Starting the Container
 
 ### OS X
 
@@ -56,11 +56,13 @@ In your terminal, navigate to your MESA-Docker directory, and run the script for
 
 	./mac_dockerMESA.sh
 
-You should now be inside a docker container with MESA installed and ready to go. Once you've done your work, you can cleanly end the session simply by typing
 
-	exit
-	
-Anything you saved in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container.
+
+### Linux
+
+Navigate to your MESA-Docker directory, and run the script for Linux. The Docker commands in the script require root access (at least on Ubuntu where I've tested this), so you'll need to use `sudo`:
+
+	sudo ./linux_dockerMESA.sh
 
 
 ### Windows 10 (Pro, Enterprise, Education)
@@ -73,13 +75,7 @@ Open Git Bash and navigate to your MESA-Docker directory, then run the script fo
 
 The Windows script currently operates by SSHing into the Docker container for nice handling of X11 forwarding to your desktop. The password for user "docker" is `mesa`. 
 
-You should now be inside a docker container with MESA installed and ready to go. Once you've done your work, you can cleanly end the session simply by typing
 
-	exit
-
-Anything you saved in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container.
-
-Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
 
 ### Windows 10 Home (and possibly older Windows versions)
 
@@ -93,17 +89,38 @@ The first time this script runs it may take a few minutes to configure the virtu
 
 This script starts a Linux virtual machine, starts the MESA Docker container inside that VM, and then SSH tunnels through both layers into the Docker container with X11 forwarding so you can see your `pgstar` windows. Since there are two levels of SSH performed here, you have to enter a password twice. The first password is `tcuser`, and the second password is `mesa`. 
 
-You should now be inside a docker container with MESA installed and ready to go. Once you've done your work, you can cleanly end the session simply by typing
+
+## Working in the Container
+
+Assuming the script worked properly in the previous step, your terminal should present you with a bash interface from inside a Docker container with MESA installed and ready to go. Anything you save in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container, even after the container is stopped and removed.
+
+To test that everything is working, you might want to follow these steps for a quick first `MESA` run.
+
+	cd ~/docker_work
+	cp -r $MESA_DIR/star/work tutorial
+	cd tutorial
+	./mk
+	./rn	
+
+You should see the `pgstar` windows pop up on your screen and display the evolution of the model. For more info on getting started with `MESA` now that you have it installed and ready to run, see http://mesa.sourceforge.net/starting.html. 
+
+Since the `~/docker_work` directory is mounted, you can access and edit any of your local working files by navigating to them through the `MESA-Docker/docker_work` folder on your OS. In the above example, you can edit `tutorial/inlist_project` to change the input parameters for the run in your preferred text editor, or open `tutorial/LOGS/history.data` to see some of the output from the run.
+
+Once you've done your work, you can end the session simply by typing
 
 	exit
 
-Anything you saved in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container.
+(Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.)
 
-Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.
+This kills and deletes the container instance in which you were running `MESA`, leaving only the files you saved in the `~/docker_work` directory and its children. However, Docker caches the image after the first time you download it, so you can easily start up in a completely fresh container simply by running the script again, and you'll still be able to start right back up where you left off with anything saved in `~/docker_work`. You can even restart from a photo of a run you've previously done:
+
+	cd ~/docker_work/tutorial
+	./re x200
+
 
 ## Removing MESA-Docker
 
-Docker will automatically cache the 5 GB image the first time you call the script, so you won't have to download it every time you run. If you want to free up that space on your hard drive, you can see a list of all your cached images by typing
+Docker will automatically cache the 5 GB image the first time you call the script, so you won't have to download it every time you run. If you no longer use MESA-Docker and want to free up that space on your hard drive, you can see a list of all your cached images by typing
 
 	docker images
 
@@ -120,4 +137,10 @@ For those using Docker Toolbox instead of Docker Community Edition, you may want
 ### OS X Warning
 
 It has been documented that Docker for Mac fails to shrink its disk usage even after images are totally removed (https://github.com/docker/for-mac/issues/371). If you need to get that disk space back, you may need to reset the client: Preferences -> Reset -> Reset to factory defaults. This will remove ALL of your docker containers and images and free up the disk space used by Docker, so be careful if you have any local images that you can't pull from Docker Hub after you reset.
+
+## Contact
+
+For general questions and help using MESA-Docker, please contact the mesa-users mailing list: mesa-users@lists.mesastar.org
+
+For bug reports or suggestions for improvements, feel free to raise an issue on the github page: https://github.com/evbauer/MESA-Docker/issues 
 

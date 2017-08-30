@@ -13,6 +13,7 @@ winpty docker run -d --rm \
 
 winpty docker exec --user root mesa_dock service ssh start
 
+echo "password is mesa"
 ssh -Y -p 6158 docker@localhost
 
 docker kill mesa_dock
