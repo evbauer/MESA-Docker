@@ -20,7 +20,7 @@ This is not intended to replace native installation of MESA for all users, and t
 At least 8 GB of RAM and 10 GB of free disk space are recommended.
 The Docker image is about 5 GB, and you'll also need space to store any MESA output.
 If you have < 8 GB of RAM, you may need to tune your Docker settings to allocate an appropriate memory.
-If you have ≥ 8 GB of RAM or ≥ 4 CPU cores, you may want to consider tweaking Docker setting to allocate more resources to containers.
+If you have ≥ 8 GB of RAM or ≥ 4 CPU cores, you may want to consider tweaking Docker settings to allocate more resources to containers.
 
 ###  OS X
 Install XQuartz (2.7.10 or newer required). https://www.xquartz.org/
