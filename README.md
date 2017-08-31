@@ -1,7 +1,19 @@
 
 ![Logo](https://github.com/evbauer/MESA-Docker/blob/master/MESA-Docker-logo.png)
 
-MESA in a Docker Container for easy installation on any modern operating system.
+MESA (http://mesa.sourceforge.net/) in a Docker container for easy installation on any modern operating system.
+
+## Intended Use
+
+Installation can be a significant hurdle to those who want to try MESA. 
+One solution is MESA-Web (http://mesa-web.asu.edu/), an excellent online interface for basic stellar evolution with MESA. However, MESA-Web does not have the flexibility to offer the full suite of MESA capabilities. This Docker interface is intended to provide an alternative solution by simplifying the requirements for locally running a full MESA installation with all capabilities available, with only minor overhead associated with packaging and running everything inside a container. This should prove especially useful to
+* Users trying MESA for the first time
+* Students with class projects
+* Windows users
+
+This is not intended to replace native installation of MESA for all users, and those who wish to pursue advanced MESA modeling are encouraged to follow the instructions at http://mesa.sourceforge.net/prereqs.html. Some advanced performance features such as rate caching are not available through this Docker interface.
+
+
 
 ## Prerequisites
 
@@ -48,6 +60,8 @@ In your terminal, navigate to where you want to set up your MESA working directo
 
 ## Starting the Container
 
+The first time you run the script to start the container, Docker will download the 1 GB compressed image and unpack it into a 5GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
+
 ### OS X
 
 Start Docker.
@@ -73,8 +87,7 @@ Open Git Bash and navigate to your MESA-Docker directory, then run the script fo
 
 	./win_dockerMESA.sh
 
-The Windows script currently operates by SSHing into the Docker container for nice handling of X11 forwarding to your desktop. The password for user "docker" is `mesa`. 
-
+The Windows script currently operates by SSHing into the Docker container for nice handling of X11 forwarding to your desktop. The first time you run this script, the SSH process will warn about the unknown authenticity of the host and ask if you want to continue, so you will need to type `yes` before it will continue the login process. The password for user "docker" is `mesa`. 
 
 
 ### Windows 10 Home (and possibly older Windows versions)
@@ -87,14 +100,16 @@ Open Git Bash and navigate to your MESA-Docker directory, then run the script fo
 	
 The first time this script runs it may take a few minutes to configure the virtual machine.
 
-This script starts a Linux virtual machine, starts the MESA Docker container inside that VM, and then SSH tunnels through both layers into the Docker container with X11 forwarding so you can see your `pgstar` windows. Since there are two levels of SSH performed here, you have to enter a password twice. The first password is `tcuser`, and the second password is `mesa`. 
+This script starts a Linux virtual machine, starts the MESA Docker container inside that VM, and then SSH tunnels through both layers into the Docker container with X11 forwarding so you can see your `pgstar` windows.
+The first time you run this script, the SSH process will warn about the unknown authenticity of the host and ask if you want to continue, so you will need to type `yes` before it will continue the login process.
+Since there are two levels of SSH performed here, you have to enter a password twice. The first password is `tcuser`, and the second password is `mesa`.
 
 
 ## Working in the Container
 
 Assuming the script worked properly in the previous step, your terminal should present you with a bash interface from inside a Docker container with MESA installed and ready to go. Anything you save in the `~/docker_work` directory inside the container will persist in the `MESA-Docker/docker_work` directory outside the container, even after the container is stopped and removed.
 
-To test that everything is working, you might want to follow these steps for a quick first `MESA` run.
+To test that everything is working, you might want to follow these steps for a quick first MESA run.
 
 	cd ~/docker_work
 	cp -r $MESA_DIR/star/work tutorial
@@ -102,7 +117,7 @@ To test that everything is working, you might want to follow these steps for a q
 	./mk
 	./rn	
 
-You should see the `pgstar` windows pop up on your screen and display the evolution of the model. For more info on getting started with `MESA` now that you have it installed and ready to run, see http://mesa.sourceforge.net/starting.html. 
+You should see the `pgstar` windows pop up on your screen and display the evolution of the model. For more info on getting started with MESA now that you have it installed and ready to run, see http://mesa.sourceforge.net/starting.html. 
 
 Since the `~/docker_work` directory is mounted, you can access and edit any of your local working files by navigating to them through the `MESA-Docker/docker_work` folder on your OS. In the above example, you can edit `tutorial/inlist_project` to change the input parameters for the run in your preferred text editor, or open `tutorial/LOGS/history.data` to see some of the output from the run.
 
@@ -112,7 +127,7 @@ Once you've done your work, you can end the session simply by typing
 
 (Cleanly detaching from the container may require quitting XQuartz/Xming if pgstar windows were used in a MESA run.)
 
-This kills and deletes the container instance in which you were running `MESA`, leaving only the files you saved in the `~/docker_work` directory and its children. However, Docker caches the image after the first time you download it, so you can easily start up in a completely fresh container simply by running the script again, and you'll still be able to start right back up where you left off with anything saved in `~/docker_work`. You can even restart from a photo of a run you've previously done:
+This kills and deletes the container instance in which you were running MESA, leaving only the files you saved in the `~/docker_work` directory and its children. However, Docker caches the image after the first time you download it, so you can easily start up in a completely fresh container simply by running the script again, and you'll still be able to start right back up where you left off with anything saved in `~/docker_work`. You can even restart from a photo of a run you've previously done:
 
 	cd ~/docker_work/tutorial
 	./re x200
