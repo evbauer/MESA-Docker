@@ -43,7 +43,7 @@ eval "$(docker-machine env mesa-machine)"
 # ssh for starting the container.
 START_DOCK='docker run -d --rm --name mesa_dock -p 6158:22 '
 START_DOCK+='-v /mesa_mount:/home/docker/docker_work '
-START_DOCK+='evbauer/mesa_lean:9793.02 sleep infinity'
+START_DOCK+='evbauer/mesa_lean:9793.03 sleep infinity'
 # Needs ssh connection to run the docker command from within the VM
 # for the mounting part of the command to work.
 docker-machine ssh mesa-machine "$START_DOCK"
