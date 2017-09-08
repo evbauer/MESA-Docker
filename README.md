@@ -33,7 +33,7 @@ Install Xming. https://sourceforge.net/projects/xming/
 
 Install Git Bash. https://git-for-windows.github.io/
 
-Running Docker may require enabling VT-x/AMD-v in BIOS/UEFI.
+Running Docker may require enabling VT-x/AMD-v(SVM) in BIOS/UEFI.
 I also had to turn off "fast boot" on my particular ASUS motherboard, but I think this is uncommon.
 
 
@@ -87,7 +87,7 @@ Open Git Bash and navigate to your MESA-Docker directory, then run the script fo
 
 	./win_dockerMESA.sh
 
-The Windows script currently operates by SSHing into the Docker container for nice handling of X11 forwarding to your desktop. The first time you run this script, the SSH process will warn about the unknown authenticity of the host and ask if you want to continue, so you will need to type `yes` before it will continue the login process. The password for user "docker" is `mesa`. 
+The Windows script currently operates by SSHing into the Docker container for nice handling of X11 forwarding to your desktop. The first time you run this script, the SSH process will warn about the unknown authenticity of the host and ask if you want to continue, so you will need to type `yes` before it will continue the login process. The password for user "docker" is `mesa`. This script also mounts the `docker_work` folder, so the first time it is run you will be prompted to allow Docker to access your hard drive. You will need to agree to that and enter your password to allow access.
 
 
 ### Windows 10 Home (and possibly older Windows versions)
