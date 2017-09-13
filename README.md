@@ -133,6 +133,24 @@ This kills and deletes the container instance in which you were running MESA, le
 	./re x200
 
 
+
+## MESA Version Control
+
+New containers should be built soon after there is an official release announcement. If all you want to do is upgrade to the latest MESA release, you should be able to do so by running the scripts as usual after executing
+
+	git pull
+
+in the MESA-Docker repository.
+
+If you want to run with a MESA version other than the latest public release, use the optional argument `-v` along with one of the supported version numbers:
+* 10000 (latest)
+* 9793
+
+For example, if you want to run version 9793 on Windows instead of the latest public release, just execute
+
+	./win_dockerMESA.sh -v 9793
+
+
 ## Removing MESA-Docker
 
 Docker will automatically cache the 5 GB image the first time you call the script, so you won't have to download it every time you run. If you no longer use MESA-Docker and want to free up that space on your hard drive, you can see a list of all your cached images by typing
