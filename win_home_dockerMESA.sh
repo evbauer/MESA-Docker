@@ -43,7 +43,7 @@ then
 		   -d virtualbox \
 		   --virtualbox-memory=2048 \
 		   --virtualbox-cpu-count=2 \
-		   --virtualbox-disk-size=10000 \
+		   --virtualbox-disk-size=20000 \
 		   mesa-machine
     
     echo "MESA MACHINE CREATED, stopping for mount point"
