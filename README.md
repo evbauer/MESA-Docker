@@ -1,5 +1,7 @@
 
-![Logo](https://github.com/evbauer/MESA-Docker/blob/master/MESA-Docker-logo.png)
+![Logo](MESA-Docker-logo.png)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1002850.svg)](https://doi.org/10.5281/zenodo.1002850)
 
 MESA (http://mesa.sourceforge.net/) in a Docker container for easy installation on any modern operating system.
 
