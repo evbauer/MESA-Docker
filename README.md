@@ -145,7 +145,8 @@ New containers should be built soon after there is an official release announcem
 in the MESA-Docker repository.
 
 If you want to run with a MESA version other than the latest public release, use the optional argument `-v` along with one of the supported version numbers:
-* 10000 (latest)
+* 10108 (latest)
+* 10000
 * 9793
 
 For example, if you want to run version 9793 on Windows instead of the latest public release, just execute
