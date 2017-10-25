@@ -162,7 +162,7 @@ Docker will automatically cache the 5 GB image the first time you call the scrip
 
 This will show you all the images and how much space they are taking up. You should be able to remove the MESA-Docker image with the command
 
-	docker rmi evbauer/mesa_lean:10000.01
+	docker rmi evbauer/mesa_lean:10108.01
 
 ### Windows 10 Home
 
