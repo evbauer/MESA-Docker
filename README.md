@@ -96,11 +96,11 @@ The Windows script currently operates by SSHing into the Docker container for ni
 
 Start Xming.
 
-Open Git Bash and navigate to your MESA-Docker directory, then run the script for Windows Home.
+Open Git Bash and navigate to your MESA-Docker directory, then run the script for Windows Home. Note that if you want the (several GB) virtual machine to be installed on a disk other than your C drive, you'll need to use the `-d` optional argument to specify the drive letter you want. You will then need to consistently use the same drive option whenever you run the script, or edit the script to change the `install_drive=C` line to have the default drive letter .
 
-	./win_home_dockerMESA.sh
+	./win_home_dockerMESA.sh -d <drive letter>
 	
-The first time this script runs it may take a few minutes to configure the virtual machine.
+You can leave out the `-d <drive letter>` part of this command if you're happy with the `C` drive as default. The first time this script runs it may take a few minutes to configure the virtual machine.
 
 This script starts a Linux virtual machine, starts the MESA Docker container inside that VM, and then SSH tunnels through both layers into the Docker container with X11 forwarding so you can see your `pgstar` windows.
 The first time you run this script, the SSH process will warn about the unknown authenticity of the host and ask if you want to continue, so you will need to type `yes` before it will continue the login process.
@@ -168,8 +168,10 @@ This will show you all the images and how much space they are taking up. You sho
 
 For those using Docker Toolbox instead of Docker Community Edition, you may want to remove the entire virtual machine with
 
+	export MACHINE_STORAGE_PATH=<drive letter>:\\docker
 	docker-machine rm mesa-machine
 
+where `<drive letter>` is the drive where you chose to place the VM (C by default).
 ### OS X Warning
 
 It has been documented that Docker for Mac fails to shrink its disk usage even after images are totally removed (https://github.com/docker/for-mac/issues/371). If you need to get that disk space back, you may need to reset the client: Preferences -> Reset -> Reset to factory defaults. This will remove ALL of your docker containers and images and free up the disk space used by Docker, so be careful if you have any local images that you can't pull from Docker Hub after you reset.
