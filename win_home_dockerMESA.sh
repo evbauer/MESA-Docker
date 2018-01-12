@@ -9,7 +9,9 @@ options:
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 # Initialize variables:
 version=10108
+# default drive letter:
 install_drive=C
+
 while getopts "hvd:" opt; do
     case "$opt" in
 	h)  echo "$usage"
