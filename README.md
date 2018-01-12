@@ -96,7 +96,7 @@ The Windows script currently operates by SSHing into the Docker container for ni
 
 Start Xming.
 
-Open Git Bash and navigate to your MESA-Docker directory, then run the script for Windows Home. Note that if you want the (several GB) virtual machine to be installed on a disk other than your C drive, you'll need to use the `-d` optional argument to specify the drive letter you want. You will then need to consistently use the same drive option whenever you run the script, or edit the script to change the `install_drive=C` line to have the default drive letter .
+Open Git Bash and navigate to your MESA-Docker directory, then run the script for Windows Home. Note that if you want the (several GB) virtual machine to be installed on a disk other than your C drive, you'll need to use the `-d` optional argument to specify the drive letter you want. You will then need to consistently use the same drive option whenever you run the script, or edit the script to change the `install_drive=C` line to have the default drive letter match the option from the first time you ran the script.
 
 	./win_home_dockerMESA.sh -d <drive letter>
 	
