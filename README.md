@@ -57,7 +57,7 @@ Windows 10 Home does not enable hyper-v, which is required for Docker Community 
 
 It's a good idea to start by configuring Docker settings to allocate an appropriate number of CPU cores and amount of RAM for containers, as the defaults are likely not optimal. This can be done in the "Advanced" settings tab. Here you can also set the disk location where Docker images will be stored.
 
-(Note for Windows 10 Home users: Docker Toolbox does not provide an interface for adjusting these settings, but the script sets up a VM that is appropriately configured for running MESA, and provides a command line option for specifying disk location.)
+(Note for Windows 10 Home users: Docker Toolbox does not provide an interface for adjusting these settings, but the script provided in this repository sets up a VM that is appropriately configured for running MESA, and provides a command line option for specifying disk location.)
 
 Once you're done configuring Docker, navigate in your terminal to where you want to set up your MESA working directory, and clone this repository.
 
