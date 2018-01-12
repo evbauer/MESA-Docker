@@ -12,7 +12,7 @@ version=10108
 # default drive letter:
 install_drive=C
 
-while getopts "hvd:" opt; do
+while getopts "hv:d:" opt; do
     case "$opt" in
 	h)  echo "$usage"
 	    exit
