@@ -1,19 +1,23 @@
 #!/bin/bash
 
-usage="$(basename "$0") [-h] [-v num]
+usage="$(basename "$0") [-h] [-v num] [-d let]
 options:
     -h  show this help text
-    -v  MESA version number. 10108 (default), 10000, or 9793."
+    -v  MESA version number. 10108 (default), 10000, or 9793.
+    -d  letter for drive to install on. Default is C."
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 # Initialize variables:
 version=10108
-while getopts "hv:" opt; do
+install_drive=C
+while getopts "hvd:" opt; do
     case "$opt" in
 	h)  echo "$usage"
 	    exit
 	    ;;
 	v)  version=$OPTARG
+	    ;;
+	d)  install_drive=$OPTARG
 	    ;;
     esac
 done
@@ -33,6 +37,8 @@ esac
 
 
 export DISPLAY=localhost:0.0
+export MACHINE_STORAGE_PATH=${install_drive}:\\docker
+echo $MACHINE_STORAGE_PATH
 
 #Check to see if mesa-machine exists
 MACHINE_EXISTS=$(docker-machine ls | grep mesa-machine -c)
