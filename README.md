@@ -1,7 +1,5 @@
 
-<p align="center">
-	![Logo](MESA-Docker-logo.png)
-</p>
+![Logo](MESA-Docker-logo.png)
 
 MESA (http://mesa.sourceforge.net/) in a Docker container for easy installation on any modern operating system.
 
