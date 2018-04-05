@@ -42,7 +42,7 @@ export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
 winpty docker run -d --rm \
        --name mesa_dock \
        -p 6158:22 \
-       -v $HERE/docker_work:/home/docker/docker_work \
+       -v "$HERE/docker_work":/home/docker/docker_work \
        evbauer/mesa_lean:"$tag" \
        sleep infinity
 

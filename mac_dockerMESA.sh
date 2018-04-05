@@ -42,5 +42,5 @@ xhost + $ip
 docker run -it --rm \
        -e DISPLAY=$ip:0 \
        -e OMP_NUM_THREADS=$(getconf _NPROCESSORS_ONLN) \
-       -v $PWD/docker_work:/home/docker/docker_work \
+       -v "$PWD/docker_work":/home/docker/docker_work \
        evbauer/mesa_lean:"$tag"
