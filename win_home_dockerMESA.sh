@@ -71,7 +71,7 @@ then
     "$VBOX" \
 	sharedfolder add mesa-machine \
 	--name mesa_mount \
-	--hostpath $HERE/docker_work \
+	--hostpath "$HERE/docker_work" \
 	--automount
 fi
 
