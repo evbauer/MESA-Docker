@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Check to see we are on windows home
+if [[ ! $(wmic os get caption) = *"Home"* ]];then
+        echo "Warning you are running Windows Pro instead of Windows Home"
+        echo "Please follow the instructions for Windows Pro"
+        exit 1
+fi
+
+
+
 usage="$(basename "$0") [-h] [-v num] [-d let]
 options:
     -h  show this help text
