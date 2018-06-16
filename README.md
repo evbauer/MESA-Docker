@@ -183,6 +183,11 @@ where `<drive letter>` is the drive where you chose to place the VM (C by defaul
 
 It has been documented that Docker for Mac fails to shrink its disk usage even after images are totally removed (https://github.com/docker/for-mac/issues/371). If you need to get that disk space back, you may need to reset the client: Preferences -> Reset -> Reset to factory defaults. This will remove ALL of your docker containers and images and free up the disk space used by Docker, so be careful if you have any local images that you can't pull from Docker Hub after you reset.
 
+## Common Docker Issues
+
+The primary location for help with docker related issues is: https://docs.docker.com/ and https://success.docker.com/q/
+
+
 ## Contact
 
 For general questions and help using MESA-Docker, please contact the mesa-users mailing list: mesa-users@lists.mesastar.org
