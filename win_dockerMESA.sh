@@ -7,6 +7,12 @@ if [[ $(wmic os get caption) = *"Home"* ]];then
 	exit 1
 fi
 
+# Check if virtulization has been enabled
+if [[ ! $(systeminfo | grep -q "Virtualization Enabled In Firmware: Yes") -eq 0 ]];then 
+    echo "Warning virtualization is not enabled"
+    echo "Please reboot your system and change the settings in your BIOS"
+    exit 1
+fi
 
 
 usage="$(basename "$0") [-h] [-v num]
