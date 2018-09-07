@@ -33,6 +33,12 @@ esac
 
 #echo $tag
 
+if [[ ! $(command -v docker) == 0 ]];then
+    echo "Warning docker not found"
+    echo 'Check docker folder is in $PATH'
+    exit 1
+fi
+
 
 xhost
 ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')

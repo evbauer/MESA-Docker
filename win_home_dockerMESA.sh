@@ -55,6 +55,18 @@ esac
 
 #echo $tag
 
+if [[ ! $(command -v docker-machine) == 0 ]];then
+    echo "Warning docker-machine not found"
+    echo 'Check docker-machine folder is in $PATH'
+    exit 1
+fi
+
+if [[ ! $(command -v docker) == 0 ]];then
+    echo "Warning docker not found"
+    echo 'Check docker folder is in $PATH'
+    exit 1
+fi
+
 
 export DISPLAY=localhost:0.0
 export MACHINE_STORAGE_PATH=${install_drive}:\\docker
@@ -82,6 +94,13 @@ then
     export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
     
     export VBOX=$(find /c -name VBoxManage.exe 2>/dev/null | head -n 1)
+
+    if [[ -z "$(VBOX)" ]];then
+        echo "Warning VBoxManage.exe not found"
+        echo 'Check VBoxManage.exe is installed'
+        exit 1
+    fi
+    
 
     # docker-machine mount folder
     "$VBOX" \

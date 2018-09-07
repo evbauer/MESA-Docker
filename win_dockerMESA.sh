@@ -47,7 +47,11 @@ case "$version" in
 esac
 
 #echo $tag
-
+if [[ ! $(command -v docker) == 0 ]];then
+    echo "Warning docker not found"
+    echo 'Check docker folder is in $PATH'
+    exit 1
+fi
 
 
 export DISPLAY=localhost:0.0
