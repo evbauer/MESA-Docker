@@ -55,13 +55,15 @@ esac
 
 #echo $tag
 
-if [[ ! $(command -v docker-machine) == 0 ]];then
+tmp=$(command -v docker-machine)
+if [[ $? != 0 ]];then
     echo "Warning docker-machine not found"
     echo 'Check docker-machine folder is in $PATH'
     exit 1
 fi
 
-if [[ ! $(command -v docker) == 0 ]];then
+tmp=$(command -v docker)
+if [[ $? != 0 ]];then
     echo "Warning docker not found"
     echo 'Check docker folder is in $PATH'
     exit 1
