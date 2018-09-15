@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check to see we are on windows home
-if [[ ! $(wmic os get caption) = *"Home"* ]];then
+if [[ -f "/c/Windows/System32/BitLockerWizard.exe" ]];then
         echo "Warning you are running Windows Pro instead of Windows Home"
         echo "Please follow the instructions for Windows Pro"
         exit 1
