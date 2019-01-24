@@ -22,7 +22,7 @@ This is not intended to replace native installation of MESA for all users, and t
 ## Prerequisites
 
 At least 8 GB of RAM and 15 GB of free disk space are recommended.
-The latest Docker image is about 13 GB, and you'll also need space to store any MESA output.
+The latest Docker image is about 14 GB, and you'll also need space to store any MESA output.
 If you have < 8 GB of RAM, you may need to tune your Docker settings to allocate an appropriate memory.
 If you have ≥ 8 GB of RAM or ≥ 4 CPU cores, you may want to consider tweaking Docker settings to allocate more resources to containers.
 
@@ -68,7 +68,7 @@ Once you're done configuring Docker, navigate in your terminal to where you want
 
 ## Starting the Container
 
-The first time you run the script to start the container, Docker will download the 1 GB compressed image and unpack it into a 5GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
+The first time you run the script to start the container, Docker will download the 4 GB compressed image and unpack it into a 14 GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
 
 ### OS X
 
@@ -163,13 +163,13 @@ For example, if you want to run version 9793 on Windows instead of the latest pu
 
 ## Removing MESA-Docker
 
-Docker will automatically cache the 5 GB image the first time you call the script, so you won't have to download it every time you run. If you no longer use MESA-Docker and want to free up that space on your hard drive, you can see a list of all your cached images by typing
+Docker will automatically cache the (several GB) image the first time you call the script, so you won't have to download it every time you run. If you no longer use MESA-Docker and want to free up that space on your hard drive, you can see a list of all your cached images by typing
 
 	docker images
 
 This will show you all the images and how much space they are taking up. You should be able to remove the MESA-Docker image with the command
 
-	docker rmi evbauer/mesa_lean:10398.01
+	docker rmi evbauer/mesa_lean:10398.04
 
 ### Windows 10 Home
 
