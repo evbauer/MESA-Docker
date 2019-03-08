@@ -188,6 +188,10 @@ It has been documented that Docker for Mac fails to shrink its disk usage even a
 
 The primary location for help with docker related issues is: https://docs.docker.com/ and https://success.docker.com/q/
 
+### The docker_work folder doesn't seem to transfer files
+
+If when trying to copy files from outside the docker container into the container, and the files don't seem to be transferred then it may be that the docker_work folder did not get mounted properly during the install step. This generally happens when there was some sort of interruption during the install process. This can also manifest as permission denied errors when trying to copy files into the 
+docker_work folder inside the container. For now the best solution is to follow the instructions for removing MESA-Docker then reinstall MESA-Docker while we work on a more robust solution.
 
 ## Contact
 
