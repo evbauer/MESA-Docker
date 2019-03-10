@@ -89,30 +89,32 @@ then
 		   --virtualbox-cpu-count=2 \
 		   --virtualbox-disk-size=25000 \
 		   mesa-machine
-    
-    echo "MESA MACHINE CREATED, stopping for mount point"
-    # Stop for mounting.
-    docker-machine stop mesa-machine
-
-    # Needs a windows style path to mount.
-    export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
-    
-    export VBOX=$(find /c -name VBoxManage.exe 2>/dev/null | head -n 1)
-
-    if [[ -z "$(VBOX)" ]];then
-        echo "Warning VBoxManage.exe not found"
-        echo 'Check VBoxManage.exe is installed'
-        exit 1
-    fi
-    
-
-    # docker-machine mount folder
-    "$VBOX" \
-	sharedfolder add mesa-machine \
-	--name mesa_mount \
-	--hostpath "$HERE/docker_work" \
-	--automount
+    echo "MESA MACHINE CREATED"
 fi
+
+#Setup shared folder, we delete and recrete it as its the best way to make sure it allways exists
+    
+echo "Stopping for mount point"
+# Stop for mounting. Normally its allready stopped
+docker-machine stop mesa-machine 2>/dev/null 
+
+# Needs a windows style path to mount.
+export HERE=$(echo $PWD | sed -e 's/^\///' -e 's/\//\\/g' -e 's/^./\0:/')
+    
+export VBOX=$(find /c -name VBoxManage.exe -print -quit 2>/dev/null | head -n 1)
+
+if [[ -z "$VBOX" ]];then
+    echo "Warning VBoxManage.exe not found"
+    echo 'Check VBoxManage.exe is installed'
+    exit 1
+fi
+
+# Add docker-machine mount folder
+"$VBOX" \
+sharedfolder add mesa-machine \
+--name mesa_mount \
+--hostpath "$HERE/docker_work" \
+--automount 2>/dev/null
 
 docker-machine start mesa-machine
 echo "MESA MACHINE STARTED"
