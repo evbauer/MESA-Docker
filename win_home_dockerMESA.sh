@@ -19,12 +19,12 @@ fi
 usage="$(basename "$0") [-h] [-v num] [-d let]
 options:
     -h  show this help text
-    -v  MESA version number. 11532 (default), 10398, 10108, 10000, or 9793.
+    -v  MESA version number. 11554 (default), 11532, 10398, 10108, 10000, or 9793.
     -d  letter for drive to install on. Default is C."
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 # Initialize variables:
-version=11532
+version=11554
 # default drive letter:
 install_drive=C
 
@@ -52,6 +52,8 @@ case "$version" in
     10398)  tag=10398.04
 	    ;;
     11532)  tag=11532.01
+	    ;;
+    11554)  tag=11554.01
 	    ;;
 esac
 
