@@ -151,7 +151,8 @@ New containers should be built soon after there is an official release announcem
 in the MESA-Docker repository.
 
 If you want to run with a MESA version other than the latest public release, use the optional argument `-v` along with one of the supported version numbers:
-* 11554 (latest, default)
+* 11701 (latest, default)
+* 11554
 * 11532 (not recommended, MESA version has a memory leak)
 * 10398
 * 10108
@@ -171,7 +172,7 @@ Docker will automatically cache the (several GB) image the first time you call t
 
 This will show you all the images and how much space they are taking up. You should be able to remove the MESA-Docker image with the command
 
-	docker rmi evbauer/mesa_lean:11554.01
+	docker rmi evbauer/mesa_lean:11701.01
 
 ### Windows 10 Home
 
