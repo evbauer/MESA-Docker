@@ -3,11 +3,11 @@
 usage="$(basename "$0") [-h] [-v num]
 options:
     -h  show this help text
-    -v  MESA version number. 11701 (default), 11554, 11532, 10398, 10108, 10000, or 9793."
+    -v  MESA version number. 12115 (default), 11701, 11554, 11532, 10398, 10108, 10000, or 9793."
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 # Initialize variables:
-version=11701
+version=12115
 while getopts "hv:" opt; do
     case "$opt" in
 	h)  echo "$usage"
@@ -34,6 +34,8 @@ case "$version" in
     11554)  tag=11554.02
 	    ;;
     11701)  tag=11701.01
+	    ;;
+    12115)  tag=12115.01
 	    ;;
 esac
 
