@@ -50,7 +50,7 @@ https://www.docker.com/community-edition
 
 ### Windows 10 Home (and possibly older Windows versions)
 
-Install Docker Toolbox: https://www.docker.com/products/docker-toolbox
+Install Docker Toolbox: https://github.com/docker/toolbox/releases
 
 Windows 10 Home does not enable hyper-v, which is required for Docker Community Edition. Docker Toolbox provides a workaround. This is not optimal for performance, but MESA should run.
 
@@ -201,4 +201,3 @@ docker_work folder inside the container. For now the best solution is to follow 
 For general questions and help using MESA-Docker, please contact the mesa-users mailing list: mesa-users@lists.mesastar.org
 
 For bug reports or suggestions for improvements, feel free to raise an issue on the github page: https://github.com/evbauer/MESA-Docker/issues 
-
