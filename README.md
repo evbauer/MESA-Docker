@@ -45,8 +45,10 @@ I also had to turn off "fast boot" on my particular ASUS motherboard, but I thin
 
 ### OS X, Linux, Windows 10 Pro, Enterprise, and Education
 
-Install Docker Community Edition:
-https://www.docker.com/community-edition
+Install the Docker Engine:
+https://www.docker.com/products/container-runtime
+
+Find "Download Docker Engine" on that page. Click the link and follow the instructions you find there.
 
 ### Windows 10 Home (and possibly older Windows versions)
 
