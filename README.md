@@ -22,7 +22,7 @@ This is not intended to replace native installation of MESA for all users, and t
 ## Prerequisites
 
 At least 8 GB of RAM and 15 GB of free disk space are recommended.
-The latest Docker image is almost 15 GB, and you'll also need space to store any MESA output.
+The latest Docker image is almost 10 GB, and you'll also need space to store any MESA output.
 If you have less than 8 GB of RAM, you may need to tune your Docker settings to allocate an appropriate memory.
 If you have more than 8 GB of RAM or more than 4 CPU cores, you may want to consider tweaking Docker settings to allocate more resources to containers.
 
@@ -153,7 +153,8 @@ New containers should be built soon after there is an official release announcem
 in the MESA-Docker repository.
 
 If you want to run with a MESA version other than the latest public release, use the optional argument `-v` along with one of the supported version numbers:
-* 12115 (latest, default)
+* 12778 (latest, default)
+* 12115
 * 11701
 * 11554
 * 11532 (not recommended, MESA version has a memory leak)
@@ -175,7 +176,7 @@ Docker will automatically cache the (several GB) image the first time you call t
 
 This will show you all the images and how much space they are taking up. You should be able to remove the MESA-Docker image with the command
 
-	docker rmi evbauer/mesa_lean:12115.01
+	docker rmi evbauer/mesa_lean:12778.01
 
 ### Windows 10 Home
 
