@@ -70,7 +70,7 @@ Once you're done configuring Docker, navigate in your terminal to where you want
 
 ## Starting the Container
 
-The first time you run the script to start the container, Docker will download the 4 GB compressed image and unpack it into a 14 GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
+The first time you run the script to start the container, Docker will download the 3 GB compressed image and unpack it into a 9 GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
 
 ### OS X
 
