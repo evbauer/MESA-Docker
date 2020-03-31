@@ -49,14 +49,17 @@ if [[ $? != 0 ]];then
     exit 1
 fi
 
-
-xhost
-ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-#echo $ip
-xhost + $ip
-
-docker run -it --rm \
-       -e DISPLAY=$ip:0 \
-       -e OMP_NUM_THREADS=$(getconf _NPROCESSORS_ONLN) \
+docker run -d --rm \
+       --name mesa_dock \
+       -p 6158:22 \
        -v "$PWD/docker_work":/home/docker/docker_work \
-       evbauer/mesa_lean:"$tag"
+       evbauer/mesa_lean:"$tag" \
+       sleep infinity
+
+docker exec --user root mesa_dock service ssh start
+
+echo "password is mesa"
+ssh -Y -p 6158 docker@localhost
+
+docker kill mesa_dock
+
