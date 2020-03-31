@@ -80,7 +80,7 @@ In your terminal, navigate to your MESA-Docker directory, and run the script for
 
 	./mac_dockerMESA.sh
 
-
+The first time you run this script, the SSH process will warn about the unknown authenticity of the host and ask if you want to continue, so you will need to type `yes` before it will continue the login process. The password for user "docker" is `mesa`.
 
 ### Linux
 
