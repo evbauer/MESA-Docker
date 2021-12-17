@@ -22,7 +22,7 @@ This is not intended to replace native installation of MESA for all users, and t
 ## Prerequisites
 
 At least 8 GB of RAM and 25 GB of free disk space are recommended.
-The latest Docker image is almost 16 GB, and you'll also need space to store any MESA output.
+The latest Docker image is almost 15 GB, and you'll also need space to store any MESA output.
 If you have less than 8 GB of RAM, you may need to tune your Docker settings to allocate an appropriate memory.
 If you have more than 8 GB of RAM or more than 4 CPU cores, you may want to consider tweaking Docker settings to allocate more resources to containers.
 
@@ -70,7 +70,7 @@ Once you're done configuring Docker, navigate in your terminal to where you want
 
 ## Starting the Container
 
-The first time you run the script to start the container, Docker will download the 4 GB compressed image and unpack it into a 16 GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
+The first time you run the script to start the container, Docker will download the 4 GB compressed image and unpack it into a 15 GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
 
 ### OS X
 
@@ -153,7 +153,8 @@ New containers should be built soon after there is an official release announcem
 in the MESA-Docker repository.
 
 If you want to run with a MESA version other than the latest public release, use the optional argument `-v` along with one of the supported version numbers:
-* 15140 (latest, default)
+* r21.12.1 (latest, default)
+* 15140
 * 12778
 * 12115
 * 11701
@@ -177,7 +178,7 @@ Docker will automatically cache the (several GB) image the first time you call t
 
 This will show you all the images and how much space they are taking up. You should be able to remove the MESA-Docker image with the command
 
-	docker rmi evbauer/mesa_lean:15140.01
+	docker rmi evbauer/mesa_lean:r21.12.1.01
 
 ### Windows 10 Home
 
