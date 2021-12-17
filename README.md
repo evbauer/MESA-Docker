@@ -26,7 +26,7 @@ The latest Docker image is almost 15 GB, and you'll also need space to store any
 If you have less than 8 GB of RAM, you may need to tune your Docker settings to allocate an appropriate memory.
 If you have more than 8 GB of RAM or more than 4 CPU cores, you may want to consider tweaking Docker settings to allocate more resources to containers.
 
-###  OS X
+###  macOS / OS X
 Install XQuartz (2.7.10 or newer required). https://www.xquartz.org/
 
 In XQuartz Preferences->Security, check the box for "Allow connections from network clients". Restart XQuartz.
@@ -43,7 +43,7 @@ I also had to turn off "fast boot" on my particular ASUS motherboard, but I thin
 
 ## Install Docker
 
-### OS X, Linux, Windows 10 Pro, Enterprise, and Education
+### macOS, Linux, Windows 10 Pro, Enterprise, and Education
 
 Install the Docker Engine:
 https://www.docker.com/products/container-runtime
@@ -72,7 +72,7 @@ Once you're done configuring Docker, navigate in your terminal to where you want
 
 The first time you run the script to start the container, Docker will download the 4 GB compressed image and unpack it into a 15 GB local image that already has MESA installed. After this, running the script to start and enter the container should be almost instantaneous since Docker caches the local image (Windows 10 Home may be somewhat slower due to the additional overhead of starting a virtual machine).
 
-### OS X
+### macOS / OS X
 
 Start Docker.
 
