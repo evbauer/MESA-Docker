@@ -15,7 +15,7 @@ One solution is MESA-Web (http://mesa-web.asu.edu/), an excellent online interfa
 * Students with class projects
 * Windows users
 
-This is not intended to replace native installation of MESA for all users, and those who wish to pursue advanced MESA modeling are encouraged to follow the instructions at https://docs.mesastar.org/en/latest/installation.html. Some advanced performance features such as rate caching are not available through this Docker interface.
+This is not intended to replace native installation of MESA for all users, and those who wish to pursue advanced MESA modeling are encouraged to follow the instructions at https://docs.mesastar.org/en/release-r21.12.1/installation.html. Some advanced performance features such as rate caching are not available through this Docker interface.
 
 
 
@@ -127,7 +127,7 @@ To test that everything is working, you might want to follow these steps for a q
 	./mk
 	./rn	
 
-You should see the `pgstar` windows pop up on your screen and display the evolution of the model. For more info on getting started with MESA now that you have it installed and ready to run, see https://docs.mesastar.org/en/r21.12.1/quickstart.html#using-mesa. 
+You should see the `pgstar` windows pop up on your screen and display the evolution of the model. For more info on getting started with MESA now that you have it installed and ready to run, see https://docs.mesastar.org/en/release-r21.12.1/quickstart.html#using-mesa. 
 
 Since the `~/docker_work` directory is mounted, you can access and edit any of your local working files by navigating to them through the `MESA-Docker/docker_work` folder on your OS. In the above example, you can edit `tutorial/inlist_project` to change the input parameters for the run in your preferred text editor, or open `tutorial/LOGS/history.data` to see some of the output from the run.
 
