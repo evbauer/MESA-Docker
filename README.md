@@ -10,7 +10,7 @@ MESA (http://mesa.sourceforge.net/) in a Docker container for easy installation 
 ## Intended Use
 
 Installation can be a significant hurdle to those who want to try MESA. 
-One solution is MESA-Web (http://mesa-web.asu.edu/), an excellent online interface for basic stellar evolution with MESA. However, MESA-Web does not have the flexibility to offer the full suite of MESA capabilities. This Docker interface is intended to provide an alternative solution by simplifying the requirements for locally running a full MESA installation with all capabilities available, with only minor overhead associated with packaging and running everything inside a container. This should prove especially useful to
+One solution is MESA-Web (http://user.astro.wisc.edu/~townsend/static.php?ref=mesa-web), an excellent online interface for basic stellar evolution with MESA. However, MESA-Web does not have the flexibility to offer the full suite of MESA capabilities. This Docker interface is intended to provide an alternative solution by simplifying the requirements for locally running a full MESA installation with all capabilities available, with only minor overhead associated with packaging and running everything inside a container. This should prove especially useful to
 * Users trying MESA for the first time
 * Students with class projects
 * Windows users
