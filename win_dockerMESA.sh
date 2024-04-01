@@ -18,11 +18,11 @@ fi
 usage="$(basename "$0") [-h] [-v num]
 options:
     -h  show this help text
-    -v  MESA version number. r23.05.1 (default), r22.11.1, r22.05.1, r21.12.1, 15140, 12778, 12115, 11701, 11554, 11532, 10398, 10108, 10000, or 9793."
+    -v  MESA version number. r24.03.1 (default), r23.05.1, r22.11.1, r22.05.1, r21.12.1, 15140, 12778, 12115, 11701, 11554, 11532, 10398, 10108, 10000, or 9793."
 
 OPTIND=1         # Reset in case getopts has been used previously in the shell.
 # Initialize variables:
-version=r23.05.1
+version=r24.03.1
 while getopts "hv:" opt; do
     case "$opt" in
 	h)  echo "$usage"
@@ -63,6 +63,8 @@ case "$version" in
     r22.11.1)  tag=r22.11.1.01
 	       ;;
     r23.05.1)  tag=r23.05.1.01
+	       ;;
+    r24.03.1)  tag=r24.03.1.01
 	       ;;
 esac
 
